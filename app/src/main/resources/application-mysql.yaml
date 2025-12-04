@@ -1,0 +1,13 @@
+# MySQL 配置：使用 Docker Compose 启动 MySQL
+# 使用方式：./gradlew bootRun --args='--spring.profiles.active=mysql'
+spring:
+  docker:
+    compose:
+      enabled: true  # 启用 Docker Compose 自动启动
+      lifecycle-management: start-and-stop
+  jpa:
+    hibernate:
+      ddl-auto: validate  # 使用 Flyway 管理 schema
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
